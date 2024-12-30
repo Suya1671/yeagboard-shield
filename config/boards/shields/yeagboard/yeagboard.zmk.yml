@@ -10,5 +10,5 @@ features:
   - keys
   - studio
 siblings:
-  - woagboard_left
-  - woagboard_right
+  - yeagboard_left
+  - yeagboard_right
