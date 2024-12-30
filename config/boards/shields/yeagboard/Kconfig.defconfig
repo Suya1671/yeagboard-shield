@@ -1,0 +1,17 @@
+if YEAGBOARD_LEFT
+
+# Name must be less than 16 characters long!
+config ZMK_YEAGBOARD
+    default "yeagboard"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_YEAGBOARD_LEFT || SHIELD_YEAGBOARD_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif

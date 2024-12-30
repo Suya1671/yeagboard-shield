@@ -1,0 +1,89 @@
+/*
+*
+* SPDX-License-Identifier: MIT
+*
+*/
+
+/dts-v1/;
+#include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi>
+
+/ {
+    model = "yeagboard";
+    compatible = "yeagboard";
+
+    chosen {
+        zmk,physical-layout = &default_layout;
+        zmk,kscan = &kscan0;
+		zmk,battery = &vbatt;
+    };
+
+    default_transform: keymap_transform_0 {
+        compatible = "zmk,matrix-transform";
+        // Direct GPIO moment
+        columns = <36>;
+        rows = <1>;
+
+        // | SW1    | SW2    | SW3    | SW4    | SW5  |  | SW5    | SW4    | SW3    | SW2    | SW1  |
+        // | SW6    | SW7    | SW8    | SW9    | SW10 |  | SW10   | SW9    | SW8    | SW7    | SW6  |
+        // | SW11   | SW12   | SW13   | SW14   | SW15 |  | SW15   | SW14   | SW13   | SW12   | SW11 |
+        //                   | SW16   | SW17   | SW18 |  | SW18   | SW17   | SW16   |
+        map = <
+            RC(0,0)  RC(0,1)  RC(0,2)  RC(0,3)  RC(0,4)   RC(0,22) RC(0,21) RC(0,20) RC(0,19) RC(0,18)
+            RC(0,5)  RC(0,6)  RC(0,7)  RC(0,8)  RC(0,9)   RC(0,27) RC(0,26) RC(0,25) RC(0,24) RC(0,23)
+            RC(0,10) RC(0,11) RC(0,12) RC(0,13) RC(0,14)  RC(0,32) RC(0,31) RC(0,30) RC(0,29) RC(0,28)
+                              RC(0,15) RC(0,16) RC(0,17)  RC(0,35) RC(0,34) RC(0,33)
+        >;
+    };
+
+    default_layout: default_layout {
+        compatible = "zmk,physical-layout";
+        display-name = "Woagboard";
+
+        transform = <&default_transform>;
+        kscan = <&kscan0>;
+
+        keys  //                     w   h    x    y     rot    rx    ry
+            = <&key_physical_attrs 100 100    0  139  (-900)    50   189>
+            , <&key_physical_attrs 100 100  126   36  (-300)   176    86>
+            , <&key_physical_attrs 100 100  251    0     200   301    50>
+            , <&key_physical_attrs 100 100  350   15     200   400    66>
+            , <&key_physical_attrs 100 100  450   43     200   500    93>
+            , <&key_physical_attrs 100 100   15  238  (-900)    65   288>
+            , <&key_physical_attrs 100 100  131  136  (-300)   181   186>
+            , <&key_physical_attrs 100 100  248  100     200   298   150>
+            , <&key_physical_attrs 100 100  347  115     200   397   165>
+            , <&key_physical_attrs 100 100  446  143     200   496   193>
+            , <&key_physical_attrs 100 100   30  337  (-900)    80   387>
+            , <&key_physical_attrs 100 100  136  235  (-300)   186   285>
+            , <&key_physical_attrs 100 100  244  200     200   294   250>
+            , <&key_physical_attrs 100 100  344  215     200   394   265>
+            , <&key_physical_attrs 100 100  443  243     200   493   293>
+            , <&key_physical_attrs 100 100  338  386  (-300)   388   436>
+            , <&key_physical_attrs 100 100  452  396    1200   502   446>
+            , <&key_physical_attrs 100 100  560  436    2700   610   486>
+            , <&key_physical_attrs 100 100 1360  139     900  1410   189>
+            , <&key_physical_attrs 100 100 1234   36     300  1284    86>
+            , <&key_physical_attrs 100 100 1109    0  (-200)  1159    50>
+            , <&key_physical_attrs 100 100 1010   15  (-200)  1060    66>
+            , <&key_physical_attrs 100 100  911   43  (-200)   961    93>
+            , <&key_physical_attrs 100 100 1346  238     900  1396   288>
+            , <&key_physical_attrs 100 100 1229  136     300  1279   186>
+            , <&key_physical_attrs 100 100 1113  100  (-200)  1163   150>
+            , <&key_physical_attrs 100 100 1013  115  (-200)  1063   165>
+            , <&key_physical_attrs 100 100  914  143  (-200)   964   193>
+            , <&key_physical_attrs 100 100 1331  337     900  1381   387>
+            , <&key_physical_attrs 100 100 1224  235     300  1274   285>
+            , <&key_physical_attrs 100 100 1116  200  (-200)  1166   250>
+            , <&key_physical_attrs 100 100 1016  215  (-200)  1066   265>
+            , <&key_physical_attrs 100 100  917  243  (-200)   967   293>
+            , <&key_physical_attrs 100 100 1022  386     300  1072   436>
+            , <&key_physical_attrs 100 100  908  396 (-1200)   958   446>
+            , <&key_physical_attrs 100 100  800  436 (-2700)   850   486>
+            ;
+    };
+
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
+    };
+};

@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/zmkfirmware/zmk/refs/heads/main/schema/hardware-metadata.schema.json
+file_format: "1"
+id: yeagboard
+name: yeagboard
+url: https://github.com/Suya1671/yeagboard
+type: shield
+requires:
+  - pro_micro
+features:
+  - keys
+  - studio
+siblings:
+  - woagboard_left
+  - woagboard_right
