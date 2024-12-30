@@ -5,30 +5,7 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: 3f6841c95ff9a82658576828895ebcba1b0a5f86 # main
+      revision: v0.1.0
       import: app/west.yml
-    - name: zephyr
-      remote: zmkfirmware
-      revision: 702e50c58f67c66a57d805ac8948d11ace938d4c # v3.5.0+zmk-fixes
-      import:
-        name-blocklist:
-          - ci-tools
-          - hal_altera
-          - hal_cypress
-          - hal_infineon
-          - hal_microchip
-          - hal_nxp
-          - hal_openisa
-          - hal_silabs
-          - hal_xtensa
-          - hal_st
-          - hal_ti
-          - loramac-node
-          - mcuboot
-          - mcumgr
-          - net-tools
-          - openthread
-          - edtt
-          - trusted-firmware-m
   self:
     path: config
